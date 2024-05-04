@@ -45,10 +45,12 @@ class CreatorModeUtils(private val context: Context) : IDisplayCallback.Stub() {
     fun initialize() {
         Log.e(TAG, "Creator Mode controller setup")
 
-        // Don't apply anything if the setting is disabled
-        if (isEnabled) {
-            setMode(true)
+        if (!isEnabled) {
+            semcDisplayService.set_sspp_color_mode(1)
+            colorDisplayManager.setColorMode(3)
+            semcDisplayService.set_color_mode(1)
         }
+
     }
 
     override fun onWhiteBalanceMatrixChanged(matrix: PccMatrix) {

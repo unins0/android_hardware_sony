@@ -66,7 +66,6 @@ class CreatorModeUtils(private val context: Context) : IDisplayCallback.Stub() {
             colorDisplayManager.setColorMode(3)
             semcDisplayService.set_color_mode(1)
         }
-
     }
 
     override fun onWhiteBalanceMatrixChanged(matrix: PccMatrix) {
